@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/styles.css">
+  <title>My Social Network</title>
+</head>
+<body>
+
+  <header>
+    <h1>My Social Network</h1>
+  </header>
+
+  <main>
+    <div class="friend-container">
+      <form action="/home" method="POST" >
+        <label for="email">Friend's Email:</label>
+        <input type="email" class="form-control" name="email" required>
+        <button type="submit" onclick="fun()">Send Request</button>
+      </form>
+      <p class="friend-count">Total Friends: <%=noti.length%></p>
+      
+      <h3>Your Friends:</h3>
+      <ul class="friend-list" id="friendList">
+             <%for(let i=0;i<noti.length;i++){%>
+                 <li><%=noti[i]%></li>
+                 <form action="/delete" method="POST">
+                    <button type="submit" name="fufu" value= "<%=noti[i]%>" onclick="funu()">Unfriend</button>
+
+                 </form>
+
+             <%}%>
+      </ul>
+    </div>
+    
+    <!-- Log Out button -->
+    <a class="btn-logout" href="/logout" role="button">Log Out</a>
+
+    <a href="/notification" class="notification-icon">
+      <div class="icon">
+        <div class="badge" ><%=nota.length%></div>
+       
+      </div>
+    </div>
+  </main>
+  <script>
+    function fun() {  
+  
+  
+  alert ("Request Sent");  
+}
+function funu() {  
+  
+  
+  alert ("Unfriended");  
+} 
+  </script>
+
+</body>
+</html>
